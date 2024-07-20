@@ -70,7 +70,7 @@ let all_product = [
   {
     id: 8,
     name: "Black Oud",
-    category: "mens",
+    category: "men",
     image: p8_img,
     new_price: 699.0,
     old_price: 799.0,

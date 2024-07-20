@@ -1,150 +1,38 @@
-
-/* General styles for the popular section */
-.popular {
+.popular{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    height: 90vh;
-    padding: 20px;
-    background: #f9f9f9;
+    max-width: 1280px;
+    margin: auto;
 }
-
-.popular h1 {
+.popular h1{
     color: #171717;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 600;
-    margin-bottom: 10px;
 }
-
-.popular hr {
-    border: 0;
-    height: 2px;
-    background: #ff4141;
-    width: 80px;
-    margin: 0 auto 20px auto;
+.popular hr{
+    width: 150px;
+    height: 4px;
+    border-radius: 10px;
+    background: #252525;
 }
-
-.popular-list {
+.popular-item{
+    margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-    overflow-y: auto; /* Allows scrolling if content overflows */
-}
-
-.popular-item {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 240px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.popular-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    transition: transform 0.3s ease;
-}
-
-.popular-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.popular-item:hover img {
-    transform: scale(1.05);
-}
-
-.popular-item h2 {
-    font-size: 20px;
-    color: #333;
-    margin: 10px 0;
-    text-align: center;
-}
-
-.popular-item p {
-    font-size: 16px;
-    color: #777;
-    margin: 5px 0;
-}
-
-.popular-item p s {
-    color: #bbb;
-}
-
-/* Styles for the hero section */
-.hero {
-    height: 100vh;
-    background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
-    display: flex;
-}
-
-.hero-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    padding-left: 180px;
-    line-height: 1.1;
-}
-
-.hero-left h2 {
-    color: #090909;
-    font-size: 26px;
-    font-weight: 600;
-}
-
-.hero-left p {
-    color: #171717;
-    font-size: 100px;
-    font-weight: 700;
-}
-
-.hero-hand-icon {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.hero-hand-icon img {
-    width: 105px;
-}
-
-.hero-latest-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    width: 310px;
-    height: 70px;
-    border-radius: 75px;
-    margin-top: 30px;
-    background: #ff4141;
-    color: white;
-    font-size: 22px;
-    font-weight: 500;
-}
-
-.hero-right {
-    flex: 1;
-    display: flex;
-    align-items: center;
+    gap: 25px;
     justify-content: center;
 }
+/* ---------- media query------------ */
 
-.hero-right img {
-    height: 855px;
-    width: 750px;
+@media(max-width: 800px){
+    .popular h1{
+        font-size: 30px;
+    }
+    .popular hr{
+        width: 80px;
+        height: 4px;
+        
+    }
 }
