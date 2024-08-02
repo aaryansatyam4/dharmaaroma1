@@ -1,42 +1,30 @@
-import React, { useContext, useRef, useState } from 'react'
-import './Navbar.css'
-import logo from '../Assets/logo.png'
-import cart_icon from '../Assets/cart_icon.png'
-import nav_dropdown from '../Assets/nav_dropdown.png'
-import { Link } from 'react-router-dom'
-import { ShopContext } from '../../Context/ShopContext'
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import all_product from '../Assets/all_product'; // Ensure this path is correct
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Navbar = () => {
-
-    const [menu,setMenu] = useState("shop");
-    const {getTotalCartItems}= useContext(ShopContext);
-    const menuRef = useRef();
-
-    const dropdown_toggle = (e) => {
-      menuRef.current.classList.toggle('nav-menu-visible');
-      e.target.classList.toggle('open');
-    }
-
+function Header() {
   return (
-    <div className='navbar'>
-      <Link to='/' onClick={()=>{setMenu("shop")}} className="nav-logo">
-        <img src={logo} alt="" />
-        <p>SHOPPER</p>
-      </Link>
-      <img onClick={dropdown_toggle} className='nav-dropdown' src={nav_dropdown} alt="" />
-      <ul ref={menuRef} className="nav-menu">
-        <li onClick={()=>{setMenu("shop")}}><Link to='/'>Shop</Link>{menu==="shop"?<hr/>:<></>}</li>
-        <li onClick={()=>{setMenu("mens")}}><Link to='/mens'>Men</Link>{menu==="mens"?<hr/>:<></>}</li>
-        <li onClick={()=>{setMenu("womens")}}><Link to="womens">Women</Link>{menu==="womens"?<hr/>:<></>}</li>
-        <li onClick={()=>{setMenu("kids")}}><Link to='/kids'>Kids</Link>{menu==="kids"?<hr/>:<></>}</li>
-      </ul>
-      <div className="nav-login-cart">
-        <Link to='/login'><button>Login</button></Link>
-        <Link to='/cart'><img src={cart_icon} alt="" /></Link>
-        <div className="nav-cart-count">{getTotalCartItems()}</div>
-      </div>
-    </div>
-  )
+    <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
+      <Navbar.Brand as={Link} to="/">MyLogo</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          <Nav.Link as={NavLink} to="/" exact>Home</Nav.Link>
+          <NavDropdown title="Products" id="basic-nav-dropdown">
+            {all_product.map(product => (
+              <NavDropdown.Item key={product.id} as={NavLink} to={`/product/${product.id}`}>
+                {product.name}
+              </NavDropdown.Item>
+            ))}
+          </NavDropdown>
+          <Nav.Link as={NavLink} to="/contact">Contact</Nav.Link>
+          <Nav.Link as={NavLink} to="/about">About</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
 }
 
-export default Navbar
+export default Header;

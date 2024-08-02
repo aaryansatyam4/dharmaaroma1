@@ -1,3 +1,7 @@
+body{
+
+    background: linear-gradient(135deg, #000000, #4D4855);
+  }
 .breadcrum{
     display: flex;
     flex-wrap: wrap;
@@ -7,6 +11,7 @@
     font-size: 14px;
     font-weight: 500;
     margin: 40px 10%;
+    margin-top: 65px;
 }
 
 @media(max-width:1024px){
